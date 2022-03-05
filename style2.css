@@ -1,0 +1,385 @@
+*{
+margin:0;
+padding: 0;
+outline: none;
+box-sizing: border-box;
+text-decoration: none;
+list-style: none;
+}
+.container1{
+margin:1.5rem;
+box-shadow:0 1rem 3rem grey;
+
+}
+.header{
+  width:100%;
+  height: 100vh;
+  position:relative;
+  perspective:100rem;
+  overflow: hidden;
+}
+   .wrapper{
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.8);
+  overflow: hidden;
+}
+
+/* .img1{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  opacity:0.2S;
+  animation: scale 25s;
+}
+@keyframes scale{
+0%{
+  transform: scale(1.5);
+}
+100%{
+  transform: scale(1);
+}
+} */
+.banner{
+position:absolute;
+top:30%;
+left:15%;
+}
+.banner-heading{
+  font-size:2.5rem;
+  font-weight:900;
+  color:white;
+  width:70%;
+  line-height:3rem;
+  letter-spacing:0.5rem;
+  text-shadow:0 0.3rem 0.5rem rgba(0,0,0,0.4);
+  opacity:0;
+  animation:moveBanner 1s .5s forwards;
+}
+
+.paragraph{
+  letter-spacing:0.5rem;
+  line-height:2.5rem;
+  font-weight:700;
+  width:60%;
+  color: white;
+  text-shadow:0 0.3rem 0.5rem rgba(0,0,0,0.4);
+  opacity:0;
+  animation: moveBanner 1s 0.7s forwards;
+}
+.btn{
+ height:2rem;
+ width:10rem;
+  background-color:#c29524;
+  border:none;
+  font-size:1rem;
+  color:white;
+  text-transform:uppercase;
+  text-shadow:0 0.3rem 0.5rem rgba(0,0,0,0.2);
+  box-shadow:0 0.4rem 0.6rem rgba(0,0,0,0.4);
+  cursor:pointer;
+  opacity: 0;
+  animation:moveBanner 1s 0.9s forwards;
+}
+.hamburger-menu{
+  width: 3rem;
+  height: 3rem;
+  position: fixed;
+  top: 3rem;
+  right: 3rem;
+  z-index:300;
+  display:flex;
+  flex-direction:column;
+  justify-content: space-evenly;
+  cursor: pointer;
+  transition: right 0.7s;
+}
+.change .hamburger-menu{
+  right:12.5rem;
+}
+.line{
+width:100%;
+height:0.1rem;
+background-color:white;
+box-shadow:0 0.1rem 0.2rem rgba(0,0,0,0.2)
+}
+
+.change .line{
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.change .line-1{
+transform: rotate(45deg)
+translate(0.3rem,0.8rem);
+}
+.change .line-2{
+  opacity: 0;
+  visibility:hidden;
+}
+.change .line-3{
+transform: rotate(-45deg)
+translate(0.3rem,-0.8rem);
+}
+ .hamburger-menu span{
+position:absolute;
+  left:3.5rem;
+  width: 3.5rem;
+  height: 1.8rem;
+  background-color: #e2b646;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  color: white;
+  font-family: 'Baloo Da 2',serif;
+  font-size: 1rem;
+  letter-spacing: .1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s
+}
+.change .hamburger-menu:hover span{
+  opacity: 1;
+  visibility:visible;
+}
+.hamburger-menu span::before{
+  content: "";
+  position: absolute;
+  border-left: 1rem solid transparent;
+  border-right:1rem solid #e2b646;
+  border-bottom:1rem solid transparent;
+    border-top:1rem solid transparent;
+    top:50%;
+    left:-2rem;
+    transform: translateY(-50%);
+
+}
+@keyframes moveBanner{
+  0%{
+    transform:translateY(40rem)
+    rotateY(-20deg);
+  }
+  100%{
+    transform: translateY(0)
+    rotateY(0);
+    opacity:1;
+  }
+}
+
+
+
+#videoBG {
+    position:fixed;
+    opacity:0.1;
+}
+@media (min-aspect-ratio:16/9) {
+    #videoBG {
+        width:100%;
+        height: auto;
+    }
+}
+@media (max-aspect-ratio: 16/9) {
+    #videoBG {
+        width:auto;
+        height: 100%;
+    }
+}
+@media (max-width: 767px) {
+    #videoBG {
+        display: none;
+    }
+
+    }
+
+.sidebar{
+  width: 15rem;
+  height: 100vh;
+  margin:1.5rem;
+  right:-40rem;
+  top:0;
+  z-index: 100;
+  position:fixed;
+  background-color: white;
+  transition: right 0.5s;
+}
+.change .sidebar{
+  right: 0;
+}
+.menu{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+}
+.menu-item{
+  text-align: center;
+  margin: 1rem;
+}
+.menu-link{
+font-size: 1.5rem;
+color:#555;
+position: relative;
+}
+.menu-link::before{
+  content:attr(data-content);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #c29525;
+  width: 0;
+  overflow:hidden;
+  white-space: nowrap;
+  transition: width 0.3s ease-in-out;
+
+}
+.menu-link:hover::before{
+  width: 100%;
+}
+.social{
+  position: absolute;
+  width: 100%;
+  bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+.social-element{
+  font-size: 1.5rem;
+  margin:1rem;
+  width: 3rem;
+  height: 3rem;
+  background-color:#777;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.social-element:hover{
+  background-color: #c29525;
+}
+.tour{
+  width: 100%;
+
+
+}
+.tour-label{
+  width: 100%;
+    height: 8vh;
+background-color: #e36;
+
+}
+.tour-heading{
+  text-align:center;
+  justify-content: center;
+  color: white;
+}
+.destination{
+  display: flex;
+  margin-top: 3rem;
+  position: relative;
+}
+.destination-head{
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+.destination-img{
+  width:22rem;
+  height:20rem;
+  margin-left:2rem;
+  flex-direction: row;
+}
+.destination-img2{
+  flex-direction: row;
+  margin-left: 1rem;
+  width:22rem;
+  height:20rem;
+}
+.destination-img3{
+flex-direction: row;
+margin-left: 1rem;
+width:22rem;
+height:20rem;
+}
+
+.para1{
+  margin-left:10%;
+  position: absolute;
+  margin-top:17.3rem;
+  font-size: 2rem;
+  font-weight: 900;
+font-family: sans-serif;
+cursor: pointer;
+color: white;
+}
+
+.para2{
+  margin-left:40%;
+  position: absolute;
+  margin-top:17.3rem;
+  font-size: 2rem;
+  font-weight:900;
+  font-family: sans-serif;
+  cursor: pointer;
+  color: white;
+}
+
+.para3{
+  margin-left:70%;
+  position: absolute;
+  margin-top:17.3rem;
+  font-size: 2rem;
+  font-weight: 900;
+font-family: sans-serif;
+cursor: pointer;
+color: white;
+}
+.destination-img,.destination-img2,.destination-img3:hover{
+
+
+
+}
+
+@media only screen and (max-width: 600px){
+  .banner-heading{
+    font-size: 15px;
+    width:50%;
+    letter-spacing:2px;
+    line-height:1rem;
+    font-weight: 500;
+  }
+  .paragraph{
+    font-size:10px;
+    width:60%;
+    letter-spacing:2px;
+    line-height:1rem;
+    font-weight: 300;
+  }
+  .btn{
+    height:1.5rem;
+    width:5rem;
+    font-size:10px;
+
+  }
+  .hamburger-menu{
+    width: 2rem;
+    height: 2rem;
+    top: 4rem;
+  }
+  .line{
+  width:100%;
+  height:3px;
+}
+.change .line-1{
+transform: rotate(45deg)
+translate(0.1rem,0.4rem);
+}
+
+.menu-link{
+right:12px;
+font-size:0.8rem;
+}
+.header{
+  width:100%;
+  height: 60vh;
+}
+}
